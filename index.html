@@ -73,11 +73,12 @@
       margin-top: 2px;
     }
 
-    /* Walmart Spark — accurate 6-petal shape */
     .spark {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       flex-shrink: 0;
+      object-fit: contain;
+      object-position: center;
     }
 
     .cover-body {
@@ -115,23 +116,17 @@
 
     .cover-foot {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-end;
-    }
-
-    .walmart-word {
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      padding-bottom: 4px;
     }
 
     .cover-conf {
       color: rgba(255,255,255,0.40);
       font-size: 8.5px;
       text-align: right;
-      line-height: 1.5;
-      max-width: 200px;
+      white-space: nowrap;
+      line-height: 1;
     }
 
     /* light-blue band with CTA link inside */
@@ -217,14 +212,13 @@
        PHONE MOCKUP — single composite image
     ══════════════════════════════════════════ */
     .phones-wrap {
-      margin: 20px 0 4px;
+      margin: 20px -36px 4px;  /* bleed to page edges for full width */
     }
 
     .mockup-img {
       width: 100%;
       display: block;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
+      image-rendering: auto;
     }
 
     .phones-caption {
@@ -379,9 +373,9 @@
     }
 
     /* ══════════════════════════════════════════
-       FOOTER
+       FOOTERS
     ══════════════════════════════════════════ */
-    .footer {
+    .footer-yellow {
       background: var(--yellow);
       padding: 18px 36px;
       text-align: center;
@@ -389,6 +383,58 @@
       font-weight: 700;
       color: var(--dark);
       letter-spacing: 0.01em;
+    }
+
+    .footer-blue {
+      background: var(--blue);
+      padding: 24px 36px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-blue-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .footer-demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      padding: 10px 22px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-demo-link:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .footer-play {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .footer-play::after {
+      content: '';
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 4px 0 4px 8px;
+      border-color: transparent transparent transparent var(--blue);
+      margin-left: 2px;
     }
   </style>
 </head>
@@ -527,9 +573,18 @@
 
   </div><!-- /body -->
 
-  <!-- ══ FOOTER ════════════════════════════════ -->
-  <div class="footer">
-    Thanks to everyone who helped bring List-to-Cart
+  <!-- ══ FOOTER YELLOW ════════════════════════ -->
+  <div class="footer-yellow">
+    Thanks to everyone who helped bring List-to-Cart 🛒
+  </div>
+
+  <!-- ══ FOOTER BLUE ═══════════════════════════ -->
+  <div class="footer-blue">
+    <div class="footer-blue-text">Ready to see it in action?</div>
+    <a class="footer-demo-link" href="https://www.figma.com/proto/Iccig4us3RZFUAvwTOXikU/Apple-%7C-List-to-Cart?node-id=848-63289&viewport=524%2C520%2C0.05&t=vUxudQ8NgGuzqIrL-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=848%3A63289&show-proto-sidebar=1&page-id=848%3A62623" target="_blank">
+      <span class="footer-play"></span>
+      View the Phase 1 Demo
+    </a>
   </div>
 
 </div>
