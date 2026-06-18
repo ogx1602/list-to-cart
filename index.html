@@ -134,47 +134,42 @@
       max-width: 200px;
     }
 
-    /* light-blue band */
+    /* light-blue band with CTA link inside */
     .cover-band {
       background: var(--light);
-      height: 32px;
+      height: auto;
       width: 100%;
-    }
-
-    /* ══════════════════════════════════════════
-       CTA ROW
-    ══════════════════════════════════════════ */
-    .cta-row {
       display: flex;
       align-items: center;
-      padding: 16px 36px;
-      border-bottom: 1px solid var(--border);
+      padding: 10px 36px;
     }
 
-    .cta-btn {
+    .cta-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--blue);
-      color: #fff;
-      font-family: var(--font);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
+      gap: 9px;
       text-decoration: none;
+      color: var(--blue);
+      font-size: 13.5px;
+      font-weight: 700;
       letter-spacing: 0.01em;
-      transition: background 0.15s;
     }
-    .cta-btn:hover { background: #0929c4; }
-    .cta-btn .play {
+    .cta-link:hover { opacity: 0.8; }
+
+    .cta-play {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cta-play::after {
+      content: '';
       width: 0; height: 0;
       border-style: solid;
       border-width: 5px 0 5px 9px;
       border-color: transparent transparent transparent #fff;
-      flex-shrink: 0;
+      margin-left: 2px;
     }
 
     /* ══════════════════════════════════════════
@@ -219,57 +214,17 @@
     .section-body .ul { font-weight: 700; text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 2px; }
 
     /* ══════════════════════════════════════════
-       PHONE MOCKUP ROW
+       PHONE MOCKUP — single composite image
     ══════════════════════════════════════════ */
     .phones-wrap {
-      margin: 20px 0 12px;
+      margin: 20px 0 4px;
     }
 
-    /* Two-group label row */
-    .phones-labels {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .phone-label {
-      font-size: 11.5px;
-      font-weight: 700;
-      padding: 6px 0;
-      border-radius: 999px;
-      letter-spacing: 0.02em;
-      text-align: center;
-    }
-    .phone-label.notes {
-      background: #F0F0F0;
-      color: #1D1D1D;
-      border: 1.5px solid #E0E0E0;
-    }
-    .phone-label.walmart {
-      background: var(--blue);
-      color: #fff;
-    }
-
-    /* 5 phones in a row — images carry their own frames */
-    .phones-row {
-      display: grid;
-      grid-template-columns: 2fr 2fr 2.2fr 2fr 2fr;
-      gap: 6px;
-      align-items: flex-end;
-    }
-
-    .phone-img {
+    .mockup-img {
       width: 100%;
       display: block;
-      border-radius: 2px;
-      /* images already include phone bezels */
-    }
-
-    /* center phone (Walmart splash) sits slightly taller */
-    .phone-img.center {
-      transform: scaleY(1.04);
-      transform-origin: bottom center;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
 
     .phones-caption {
@@ -278,7 +233,7 @@
       color: var(--muted);
       font-style: italic;
       line-height: 1.55;
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     /* ══════════════════════════════════════════
@@ -445,15 +400,7 @@
   <div class="cover">
     <div class="cover-top">
       <div class="cover-date">Thu, June 18, 2026</div>
-      <!-- Walmart Spark — 6 rounded petals -->
-      <svg class="spark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220"/>
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220" transform="rotate(60 40 40)"/>
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220" transform="rotate(120 40 40)"/>
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220" transform="rotate(180 40 40)"/>
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220" transform="rotate(240 40 40)"/>
-        <ellipse cx="40" cy="13" rx="7" ry="13" fill="#FFC220" transform="rotate(300 40 40)"/>
-      </svg>
+      <img src="assets/Group.png" class="spark" alt="Walmart" />
     </div>
 
     <div class="cover-body">
@@ -463,16 +410,14 @@
     </div>
 
     <div class="cover-foot">
-      <div class="walmart-word">Walmart</div>
       <div class="cover-conf">This document is private and confidential. For internal use only.</div>
     </div>
   </div>
-  <div class="cover-band"></div>
 
-  <!-- ══ CTA ════════════════════════════════════ -->
-  <div class="cta-row">
-    <a class="cta-btn" href="#">
-      <span class="play"></span>
+  <!-- CTA link lives inside the light-blue band -->
+  <div class="cover-band">
+    <a class="cta-link" href="https://www.figma.com/proto/Iccig4us3RZFUAvwTOXikU/Apple-%7C-List-to-Cart?node-id=848-63289&viewport=524%2C520%2C0.05&t=vUxudQ8NgGuzqIrL-9&scaling=scale-down&content-scaling=fixed&starting-point-node-id=848%3A63289&show-proto-sidebar=1&page-id=848%3A62623" target="_blank">
+      <span class="cta-play"></span>
       See Phase 1 Demo
     </a>
   </div>
@@ -488,23 +433,13 @@
         Today, ~80% of American households shop with a grocery list — often to avoid the "forgotten item." Customers need a seamless way to map list items to shoppable products, personalized to them, with an easy path to add them to cart.
       </div>
 
-      <!-- Phone journey — real Figma screenshots -->
+      <!-- Single crisp composite mockup image -->
       <div class="phones-wrap">
-        <div class="phones-labels">
-          <span class="phone-label notes">Apple Notes</span>
-          <span class="phone-label walmart">Walmart App</span>
-        </div>
-        <div class="phones-row">
-          <img class="phone-img" src="assets/image1_1099_125847.png" alt="Apple Notes grocery list" />
-          <img class="phone-img" src="assets/image2_1099_125847.png" alt="Share to Walmart" />
-          <img class="phone-img center" src="assets/image0_1099_125847.png" alt="Walmart app loading" />
-          <img class="phone-img" src="assets/image3_1099_125847.png" alt="Personalized picks" />
-          <img class="phone-img" src="assets/image4_1099_125847.png" alt="Cart" />
-        </div>
+        <img class="mockup-img" src="assets/Mockup.png" alt="Apple Notes to Walmart Cart flow" />
       </div>
 
       <div class="phones-caption">
-        From a handwritten-style note to a personalized, shoppable basket<br>— without leaving the list.
+        From a casual shopping list on Apple Notes to a personalized,<br>shoppable basket — without leaving the list.
       </div>
     </div>
 
